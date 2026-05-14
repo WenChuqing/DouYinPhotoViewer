@@ -16,6 +16,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.Collections
 
+fun getFavoriteMedia(): List<MediaItem> {
+    return repository.getFavoriteMedia()
+}
+
 /**
  * 媒体浏览 ViewModel
  * 管理媒体列表状态、已浏览集合、播放状态等
