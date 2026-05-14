@@ -29,6 +29,12 @@ fun isFavorite(mediaId: Long): Boolean {
     return mediaId in favoriteIds
 }
 
+// 把你之前的这个方法补全
+fun getFavoriteMedia(): List<MediaItem> {
+    // 从所有媒体中筛选出收藏的
+    return allMedia.filter { it.id in favoriteIds }
+}
+
 /**
  * 媒体仓库类
  * 负责从 MediaStore 读取本地媒体文件
