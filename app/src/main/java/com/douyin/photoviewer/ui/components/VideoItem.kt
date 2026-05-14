@@ -20,6 +20,23 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.media3.ui.PlayerView
 import com.douyin.photoviewer.player.VideoPlayerManager
 
+// 心形按钮
+IconButton(onClick = {
+    if (isFavorite) {
+        viewModel.removeFromFavorite(mediaId)
+    } else {
+        viewModel.addToFavorite(mediaId)
+    }
+}) {
+    Icon(
+        painter = if (isFavorite) 
+            painterResource(R.drawable.ic_heart_filled)  // 实心心
+        else 
+            painterResource(R.drawable.ic_heart_outline), // 空心心
+        contentDescription = "收藏"
+    )
+}
+
 /**
  * 视频播放组件
  * 使用 ExoPlayer 播放视频
