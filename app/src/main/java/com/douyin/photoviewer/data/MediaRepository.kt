@@ -8,6 +8,27 @@ import com.douyin.photoviewer.model.MediaItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
+
+// 1. 存收藏的ID列表
+private val favoriteIds = mutableSetOf<Long>()
+
+// 2. 添加到收藏
+fun addToFavorite(mediaId: Long) {
+    favoriteIds.add(mediaId)
+    // 保存到本地（用SharedPreferences）
+    // 简单的话先用内存存着，能跑起来再说
+}
+
+// 3. 从收藏移除
+fun removeFromFavorite(mediaId: Long) {
+    favoriteIds.remove(mediaId)
+}
+
+// 4. 判断是不是收藏
+fun isFavorite(mediaId: Long): Boolean {
+    return mediaId in favoriteIds
+}
+
 /**
  * 媒体仓库类
  * 负责从 MediaStore 读取本地媒体文件
