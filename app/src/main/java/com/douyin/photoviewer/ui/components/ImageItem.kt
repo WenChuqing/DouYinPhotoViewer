@@ -20,6 +20,23 @@ import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 
+// 心形按钮
+IconButton(onClick = {
+    if (isFavorite) {
+        viewModel.removeFromFavorite(mediaId)
+    } else {
+        viewModel.addToFavorite(mediaId)
+    }
+}) {
+    Icon(
+        painter = if (isFavorite) 
+            painterResource(R.drawable.ic_heart_filled)  // 实心心
+        else 
+            painterResource(R.drawable.ic_heart_outline), // 空心心
+        contentDescription = "收藏"
+    )
+}
+
 /**
  * 图片显示组件
  * 使用 Glide Compose 加载图片
